@@ -1,7 +1,7 @@
 version: '3'
 services:
   influxdb:
-    image: influxdb:alpine
+    image: influxdb:1.8-alpine
     container_name: influxdb
     volumes:
       - ./data:/var/lib/influxdb
