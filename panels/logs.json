@@ -1,0 +1,273 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 3,
+  "iteration": 1626100964917,
+  "links": [],
+  "panels": [
+    {
+      "datasource": null,
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "dedupStrategy": "exact",
+        "enableLogDetails": true,
+        "showLabels": false,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "groupBy": [],
+          "limit": "500",
+          "measurement": "ProxyDial",
+          "orderByTime": "DESC",
+          "policy": "default",
+          "query": "SELECT \"address\", \"chain\", \"duration\", \"proxy\", \"id\" as request_id FROM \"ProxyDial\" WHERE $timeFilter AND (\"id\" =~ /$request_id/) AND (\"host\" =~ /$host/) ORDER BY time DESC LIMIT 500",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "address"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "*"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "id",
+              "operator": "=~",
+              "value": "/^$request_id$/"
+            }
+          ]
+        }
+      ],
+      "title": "Proxy Dial",
+      "transformations": [],
+      "type": "logs"
+    },
+    {
+      "datasource": null,
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "dedupStrategy": "exact",
+        "enableLogDetails": true,
+        "showLabels": false,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "groupBy": [],
+          "limit": "500",
+          "measurement": "DNSRequest",
+          "orderByTime": "DESC",
+          "policy": "default",
+          "query": "SELECT \"name\", \"qType\", \"duration\", \"answer\", \"id\" as request_id, \"dnsType\" FROM \"DNSRequest\" WHERE (\"id\" =~ /$request_id/) AND (\"name\" =~ /$host/) AND $timeFilter ORDER BY time DESC LIMIT 500",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "address"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "*"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "DNS Request",
+      "transformations": [],
+      "type": "logs"
+    },
+    {
+      "datasource": null,
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 11
+      },
+      "id": 4,
+      "options": {
+        "dedupStrategy": "exact",
+        "enableLogDetails": true,
+        "showLabels": false,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "groupBy": [],
+          "limit": "500",
+          "measurement": "RuleMatch",
+          "orderByTime": "DESC",
+          "policy": "default",
+          "query": "SELECT \"host\", *, \"id\" as request_id FROM \"RuleMatch\" WHERE (\"id\" =~ /$request_id/) AND (\"host\" =~ /$host/) AND $timeFilter ORDER BY time DESC LIMIT 500",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "logs",
+          "select": [
+            [
+              {
+                "params": [
+                  "address"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "*"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Rule Match",
+      "transformations": [],
+      "type": "logs"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 30,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "",
+          "value": ""
+        },
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "label": "",
+        "name": "request_id",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "",
+          "value": ""
+        },
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "label": "",
+        "name": "host",
+        "options": [
+          {
+            "selected": false,
+            "text": "razord",
+            "value": "razord"
+          }
+        ],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Logs",
+  "uid": "k7dzdAmnz",
+  "version": 10
+}

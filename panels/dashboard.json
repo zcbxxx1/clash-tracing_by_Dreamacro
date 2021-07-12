@@ -1,46 +1,4 @@
 {
-    "__inputs": [
-        {
-            "name": "DS_INFLUXDB",
-            "label": "InfluxDB",
-            "description": "",
-            "type": "datasource",
-            "pluginId": "influxdb",
-            "pluginName": "InfluxDB"
-        }
-    ],
-    "__requires": [
-        {
-            "type": "grafana",
-            "id": "grafana",
-            "name": "Grafana",
-            "version": "7.3.4"
-        },
-        {
-            "type": "panel",
-            "id": "graph",
-            "name": "Graph",
-            "version": ""
-        },
-        {
-            "type": "datasource",
-            "id": "influxdb",
-            "name": "InfluxDB",
-            "version": "1.0.0"
-        },
-        {
-            "type": "panel",
-            "id": "stat",
-            "name": "Stat",
-            "version": ""
-        },
-        {
-            "type": "panel",
-            "id": "table",
-            "name": "Table",
-            "version": ""
-        }
-    ],
     "annotations": {
         "list": [
             {
@@ -57,11 +15,11 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": null,
+    "id": 2,
     "links": [],
     "panels": [
         {
-            "datasource": "${DS_INFLUXDB}",
+            "datasource": "InfluxDB",
             "fieldConfig": {
                 "defaults": {
                     "custom": {
@@ -115,7 +73,7 @@
                     }
                 ]
             },
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "targets": [
                 {
                     "groupBy": [
@@ -170,7 +128,7 @@
             "type": "table"
         },
         {
-            "datasource": "${DS_INFLUXDB}",
+            "datasource": "InfluxDB",
             "fieldConfig": {
                 "defaults": {
                     "custom": {
@@ -228,7 +186,7 @@
                     }
                 ]
             },
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "targets": [
                 {
                     "groupBy": [],
@@ -292,7 +250,7 @@
             "type": "table"
         },
         {
-            "datasource": "${DS_INFLUXDB}",
+            "datasource": "InfluxDB",
             "fieldConfig": {
                 "defaults": {
                     "custom": {
@@ -346,7 +304,7 @@
                     }
                 ]
             },
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "targets": [
                 {
                     "groupBy": [
@@ -405,13 +363,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "${DS_INFLUXDB}",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {}
-                },
-                "overrides": []
-            },
+            "datasource": "InfluxDB",
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -438,7 +390,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -530,11 +482,10 @@
             }
         },
         {
-            "datasource": "${DS_INFLUXDB}",
+            "datasource": "InfluxDB",
             "description": "",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {},
                     "mappings": [],
                     "thresholds": {
                         "mode": "absolute",
@@ -568,9 +519,10 @@
                     "fields": "/^Total$/",
                     "values": false
                 },
+                "text": {},
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "targets": [
                 {
                     "alias": "Download",
@@ -677,24 +629,9 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "${DS_INFLUXDB}",
+            "datasource": "InfluxDB",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {},
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    },
                     "unit": "µs"
                 },
                 "overrides": []
@@ -725,7 +662,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -820,13 +757,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "${DS_INFLUXDB}",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {}
-                },
-                "overrides": []
-            },
+            "datasource": "InfluxDB",
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -853,7 +784,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -955,10 +886,9 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "${DS_INFLUXDB}",
+            "datasource": "InfluxDB",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {},
                     "unit": "bytes"
                 },
                 "overrides": []
@@ -989,7 +919,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -1119,10 +1049,9 @@
             }
         },
         {
-            "datasource": "${DS_INFLUXDB}",
+            "datasource": "InfluxDB",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {},
                     "mappings": [],
                     "thresholds": {
                         "mode": "absolute",
@@ -1156,9 +1085,10 @@
                     "fields": "",
                     "values": false
                 },
+                "text": {},
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "targets": [
                 {
                     "groupBy": [
@@ -1198,11 +1128,12 @@
             "type": "stat"
         },
         {
-            "datasource": "${DS_INFLUXDB}",
+            "datasource": "InfluxDB",
             "fieldConfig": {
                 "defaults": {
                     "custom": {
                         "align": null,
+                        "displayMode": "auto",
                         "filterable": false
                     },
                     "mappings": [],
@@ -1288,7 +1219,7 @@
                     }
                 ]
             },
-            "pluginVersion": "7.3.4",
+            "pluginVersion": "8.0.3",
             "targets": [
                 {
                     "groupBy": [],
@@ -1339,7 +1270,7 @@
             "type": "table"
         }
     ],
-    "schemaVersion": 26,
+    "schemaVersion": 30,
     "style": "dark",
     "tags": [],
     "templating": {
@@ -1353,5 +1284,5 @@
     "timezone": "",
     "title": "Clash",
     "uid": "86r6Pk1Gk",
-    "version": 25
+    "version": 1
 }
