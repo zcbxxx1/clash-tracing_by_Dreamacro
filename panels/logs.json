@@ -20,7 +20,7 @@
   "links": [],
   "panels": [
     {
-      "datasource": null,
+      "datasource": "InfluxDB",
       "gridPos": {
         "h": 11,
         "w": 12,
@@ -87,7 +87,7 @@
       "type": "logs"
     },
     {
-      "datasource": null,
+      "datasource": "InfluxDB",
       "gridPos": {
         "h": 11,
         "w": 12,
@@ -148,7 +148,7 @@
       "type": "logs"
     },
     {
-      "datasource": null,
+      "datasource": "InfluxDB",
       "gridPos": {
         "h": 11,
         "w": 12,
