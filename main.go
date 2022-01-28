@@ -21,13 +21,14 @@ func envOrDefault(env string, def string) string {
 func main() {
 	host := envOrDefault("INFLUXDB_HOST", "localhost:8086")
 	token := envOrDefault("INFLUXDB_TOKEN", "")
+	database := envOrDefault("INFLUXDB_DATABASE", "events")
 
 	clashHost := envOrDefault("CLASH_HOST", "localhost:9090")
 	clashToken := envOrDefault("CLASH_TOKEN", "")
 	client := influxdb2.NewClient(fmt.Sprintf("http://%s", host), token)
 	defer client.Close()
 
-	startQueue(client.WriteAPI("clash", "events"))
+	startQueue(client.WriteAPI("clash", database))
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
