@@ -1,27 +1,31 @@
 version: '3'
 services:
-  influxdb:
-    image: influxdb:1.8-alpine
-    container_name: influxdb
+  loki:
+    image: grafana/loki:2.4.2
+    container_name: loki
     volumes:
-      - ./data:/var/lib/influxdb
-    environment:
-      INFLUXDB_DB: events
-      INFLUXDB_ADMIN_USER: admin
-      INFLUXDB_ADMIN_PASSWORD: admin
-      INFLUXDB_HTTP_FLUX_ENABLED: 'true'
+      - ./loki/data:/loki
+      - ./loki/config.yaml:/etc/loki/local-config.yaml
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana-oss:latest
     volumes:
       - ./grafana:/var/lib/grafana
     ports:
       - "3000:3000"
     container_name: grafana
-  scraper:
+  vector:
+    image: timberio/vector:0.X-alpine
+    volumes:
+      - ./vector/vector.toml:/etc/vector/vector.toml
+    container_name: vector
+    depends_on:
+      - loki
+  reporter:
     build: .
     environment:
-      INFLUXDB_HOST: 'influxdb:8086'
-      INFLUXDB_TOKEN: 'admin:admin'
-      CLASH_HOST: '192.168.65.2:9090'
+      CLASH_HOST: '192.168.88.201:9090'
       CLASH_TOKEN: ''
-    container_name: scraper
+      VECTOR_ADDR: 'vector:9000'
+    container_name: reporter
+    depends_on:
+      - vector

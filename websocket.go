@@ -8,9 +8,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-var (
-	errConnClosed = errors.New("conn closed")
-)
+var errConnClosed = errors.New("conn closed")
 
 func dialWebsocketChan(ctx context.Context, url string) chan []byte {
 	fallbackMaxSec := 64
