@@ -29,7 +29,7 @@ schema_config:
 ruler:
   alertmanager_url: http://localhost:9093
 
-# costom
+# custom
 table_manager:
   retention_deletes_enabled: true
   retention_period: 168h
