@@ -3,7 +3,7 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {},
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -22,11 +22,12 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 3,
-  "iteration": 1644410918236,
+  "iteration": 1650798919451,
   "links": [],
   "liveNow": false,
   "panels": [
     {
+      "datasource": {},
       "gridPos": {
         "h": 11,
         "w": 12,
@@ -61,6 +62,7 @@
       "type": "logs"
     },
     {
+      "datasource": {},
       "gridPos": {
         "h": 11,
         "w": 12,
@@ -95,6 +97,7 @@
       "type": "logs"
     },
     {
+      "datasource": {},
       "gridPos": {
         "h": 11,
         "w": 12,
@@ -129,12 +132,13 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 1,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
+        "allFormat": "glob",
         "current": {},
         "hide": 0,
         "label": "",
@@ -145,6 +149,7 @@
         "type": "textbox"
       },
       {
+        "allFormat": "glob",
         "current": {
           "selected": false,
           "text": "",
