@@ -16,7 +16,8 @@ services:
   vector:
     image: timberio/vector:0.X-alpine
     volumes:
-      - ./vector/vector.toml:/etc/vector/vector.toml
+      - ./vector/vector.yaml:/etc/vector/vector.yaml
+      # - ./vector/vector.toml:/etc/vector/vector.toml
     container_name: vector
     depends_on:
       - loki
